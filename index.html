@@ -26,22 +26,7 @@
                 0 20px 2px rgba(0,0,0,1)
                 ;
             }
-            @viewport
-{
-    zoom:1.0;
-    width:extend-to-zoom;
-}
-@-ms-viewport
-{
-    zoom:1.0;
-    width:extend-to-zoom;
-}
-            @media screen and (max-width: 400px) {
-    body {
-      background-color: white;
-        font-size:80px;
-    }
-  }
+           
             section{
                 height:85vh;
                 display:flex;
@@ -110,6 +95,34 @@
             {
                 display:none;
             }
+            @media only screen and (min-width: 600px) {
+                header{
+
+                width:100%;
+               line-height:25vh;
+                background-color: #20bf6b;
+            }
+            .gameArea{
+                width:100%;
+                height:500px;
+                padding:200px 0;
+                background-color: #2ed573;
+                display:flex;
+                flex-direction: column;
+              font-family: 'Source Sans Pro',sans-serif;
+                justify-content: center;
+                align-items: center;
+               
+                box-shadow: 0 8px 6px -6px black;
+
+            }
+                   
+  }
+    
+    
+
+     
+  
         </style>
     </head>
     <body>
