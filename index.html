@@ -4,6 +4,14 @@
 
         </title>
         <link href="https://fonts.googleapis.com/css?family=Carter+One|Source+Sans+Pro&display=swap" rel="stylesheet">
+        <!-- CSS only -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+<!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        
         <style>
                    *{margin:0;padding:0;box-sizing: border-box;}
             header{
@@ -167,7 +175,7 @@
                 color:#eb4d4b;
             }
           
-            button.btn
+            button.btn1,button.btn2,button.btn3,button.btn4,button.btn5
             {
                 font-weight: 600;
                 padding: 1rem 2rem;
@@ -180,6 +188,26 @@
 
             }
             button.btn:hover,button.btn:focus,button.btn:active{
+                letter-spacing: 1.25rem;
+                word-spacing:1.0rem;
+            }
+            button.btn1:hover,button.btn:focus,button.btn:active{
+                letter-spacing: 1.25rem;
+                word-spacing:1.0rem;
+            }
+            button.btn2:hover,button.btn:focus,button.btn:active{
+                letter-spacing: 1.25rem;
+                word-spacing:1.0rem;
+            }
+            button.btn3:hover,button.btn:focus,button.btn:active{
+                letter-spacing: 1.25rem;
+                word-spacing:1.0rem;
+            }
+            button.btn4:hover,button.btn:focus,button.btn:active{
+                letter-spacing: 1.25rem;
+                word-spacing:1.0rem;
+            }
+            button.btn5:hover,button.btn:focus,button.btn:active{
                 letter-spacing: 1.25rem;
                 word-spacing:1.0rem;
             }
@@ -196,8 +224,20 @@
         <header>
             <h1> SCRAMBLE the game </h1>
         </header>
+     
+   
+
+        </div>
         <section>
             <div class="gameArea">
+                    <div class="row-fluid">
+                            <button class="btn1">CSE</button>
+                            <button class="btn2">Bollywood</button>
+                            <button class="btn3">Movies</button>
+                            <button class="btn4">Singer</button>
+                            <button class="btn5">Comedian</button>
+            
+                    </div>
                 <h3 class="msg"> </h3>
                     <input type="text" class="hidden">
                     <button class="btn">CLICK HERE TO START</button>
@@ -205,13 +245,25 @@
             </div>
         </section>
         <script>
+           
+         
             const msg=document.querySelector('.msg');
             const guess=document.querySelector('input');
             const btn=document.querySelector('.btn');
+            const btn1=document.querySelector('.btn1');
+            const btn2=document.querySelector('.btn2');
+            const btn3=document.querySelector('.btn3');
+            const btn4=document.querySelector('.btn4');
+            const btn5=document.querySelector('.btn5');
             let play=false;
             let newWords="";
             let ranWords="";
-            let sWords=['java','python','javascript','blockchain','django','spring','flask','angular','android'];
+            let sWords1=['java','python','javascript','blockchain','django','spring','flask','angular','android'];
+            let sWords2=['rajpal','akshay','shahrukh','shushant','Sanjana','saif','ayushman','kartikaryan','amitab'];
+            let sWords3=['lagaan','ishq','baazigar','herapheri','don','stree','sadak','highway','blue'];
+            let sWords4=['arijit','dino','nikhil','armaan','honey','jubin','krishna','pritam','sonu'];
+            let sWords5=['abhishek','varun','kunal','uroojashfaq','aakash','anurag','biswa','samay','tanmay'];
+            
 
 
 
@@ -220,6 +272,36 @@
             const createNewWords=()=>{
                 let rand=Math.floor(Math.random()*sWords.length);
                 let newTemp=sWords[rand];
+                return newTemp;
+
+            }
+            const createNewWords1=()=>{
+                let rand=Math.floor(Math.random()*sWords1.length);
+                let newTemp=sWords1[rand];
+                return newTemp;
+
+            }
+            const createNewWords2=()=>{
+                let rand=Math.floor(Math.random()*sWords2.length);
+                let newTemp=sWords2[rand];
+                return newTemp;
+
+            }
+            const createNewWords3=()=>{
+                let rand=Math.floor(Math.random()*sWords3.length);
+                let newTemp=sWords3[rand];
+                return newTemp;
+
+            }
+            const createNewWords4=()=>{
+                let rand=Math.floor(Math.random()*sWords4.length);
+                let newTemp=sWords4[rand];
+                return newTemp;
+
+            }
+            const createNewWords5=()=>{
+                let rand=Math.floor(Math.random()*sWords5.length);
+                let newTemp=sWords5[rand];
                 return newTemp;
 
             }
@@ -243,7 +325,7 @@
                     play=true;
                     btn.innerHTML="Guess";
                     guess.classList.toggle('hidden');
-                   newWords =createNewWords();
+                     newWords =createNewWords();
                    ranWords=scrambleWords(newWords.split("")).join("");
                   
                    msg.innerHTML=` Guess the word:${ranWords}`;
@@ -254,7 +336,144 @@
                     {
                             play=false;
                             msg.innerHTML= `Awesome its correct. It is ${newWords}`;
-                            btn.innerHTML="Start Again";
+                            btn1.innerHTML="Start Again";
+                            guess.classList.toggle('hidden');
+                            guess.value="";
+                    }
+                    else{
+                        msg.innerHTML= `Oops its incorrect. Please try again ${ranWords}`;
+                    }
+                }
+            })
+            btn1.addEventListener('click',function()
+
+            {
+                
+                if(!play)
+                {
+                    play=true;
+                    btn.innerHTML="Guess";
+                    guess.classList.toggle('hidden');
+                     newWords =createNewWords1();
+                   ranWords=scrambleWords(newWords.split("")).join("");
+                  
+                   msg.innerHTML=` Guess the word:${ranWords}`;
+                }
+                else{
+                    let tempWord=guess.value;
+                    if(tempWord.toLowerCase()===newWords)
+                    {
+                            play=false;
+                            msg.innerHTML= `Awesome its correct. It is ${newWords}`;
+                            btn1.innerHTML="Start Again";
+                            guess.classList.toggle('hidden');
+                            guess.value="";
+                    }
+                    else{
+                        msg.innerHTML= `Oops its incorrect. Please try again ${ranWords}`;
+                    }
+                }
+            })
+            btn2.addEventListener('click',function()
+            {
+                if(!play)
+                {
+                    play=true;
+                    btn.innerHTML="Guess";
+                    guess.classList.toggle('hidden');
+                     newWords =createNewWords2();
+                   ranWords=scrambleWords(newWords.split("")).join("");
+                  
+                   msg.innerHTML=` Guess the word:${ranWords}`;
+                }
+                else{
+                    let tempWord=guess.value;
+                    if(tempWord.toLowerCase()===newWords.toLowerCase())
+                    {
+                            play=false;
+                            msg.innerHTML= `Awesome its correct. It is ${newWords}`;
+                            btn1.innerHTML="Start Again";
+                            guess.classList.toggle('hidden');
+                            guess.value="";
+                    }
+                    else{
+                        msg.innerHTML= `Oops its incorrect. Please try again ${ranWords}`;
+                    }
+                }
+            })
+            btn3.addEventListener('click',function()
+            {
+                if(!play)
+                {
+                    play=true;
+                    btn.innerHTML="Guess";
+                    guess.classList.toggle('hidden');
+                     newWords =createNewWords3();
+                   ranWords=scrambleWords(newWords.split("")).join("");
+                  
+                   msg.innerHTML=` Guess the word:${ranWords}`;
+                }
+                else{
+                    let tempWord=guess.value;
+                    if(tempWord.toLowerCase()===newWords)
+                    {
+                            play=false;
+                            msg.innerHTML= `Awesome its correct. It is ${newWords}`;
+                            btn1.innerHTML="Start Again";
+                            guess.classList.toggle('hidden');
+                            guess.value="";
+                    }
+                    else{
+                        msg.innerHTML= `Oops its incorrect. Please try again ${ranWords}`;
+                    }
+                }
+            })
+            btn4.addEventListener('click',function()
+            {
+                if(!play)
+                {
+                    play=true;
+                    btn.innerHTML="Guess";
+                    guess.classList.toggle('hidden');
+                     newWords =createNewWords4();
+                   ranWords=scrambleWords(newWords.split("")).join("");
+                  
+                   msg.innerHTML=` Guess the word:${ranWords}`;
+                }
+                else{
+                    let tempWord=guess.value;
+                    if(tempWord.toLowerCase()===newWords)
+                    {
+                            play=false;
+                            msg.innerHTML= `Awesome its correct. It is ${newWords}`;
+                            btn1.innerHTML="Start Again";
+                            guess.classList.toggle('hidden');
+                            guess.value="";
+                    }
+                    else{
+                        msg.innerHTML= `Oops its incorrect. Please try again ${ranWords}`;
+                    }
+                }
+            })
+            btn5.addEventListener('click',function()
+            {
+                if(!play)
+                {
+                    play=true;
+                    btn.innerHTML="Guess";
+                    guess.classList.toggle('hidden');
+                     newWords =createNewWords5();
+                   ranWords=scrambleWords(newWords.split("")).join("");
+                  
+                   msg.innerHTML=` Guess the word:${ranWords}`;
+                }
+                else{
+                    let tempWord=guess.value;
+                    if(tempWord.toLowerCase()===newWords)
+                    {
+                            play=false;
+                            msg.innerHTML= `Awesome its correct. It is ${newWords}`;
+                            btn1.innerHTML="Start Again";
                             guess.classList.toggle('hidden');
                             guess.value="";
                     }
