@@ -150,7 +150,7 @@
             }
             h3{
                 text-align: center;
-                font-size:8.5rem;
+                font-size:4.5rem;
 
             }
             input
@@ -175,7 +175,7 @@
                 color:#eb4d4b;
             }
           
-            button.btn1,button.btn2,button.btn3,button.btn4,button.btn5
+            button.btn,button.btn1,button.btn2,button.btn3,button.btn4,button.btn5
             {
                 font-weight: 600;
                 padding: 1rem 2rem;
@@ -240,7 +240,7 @@
                     </div>
                 <h3 class="msg"> </h3>
                     <input type="text" class="hidden">
-                    <button class="btn">CLICK HERE TO START</button>
+                    <button class="btn">CHOOSE ANY CATEGORY OR PLAY MASTER</button>
                
             </div>
         </section>
@@ -258,6 +258,7 @@
             let play=false;
             let newWords="";
             let ranWords="";
+            let sWords=['baazigar','herapheri','javascript','blockchain','biswa','samay','tanmay','angular','android'];
             let sWords1=['java','python','javascript','blockchain','django','spring','flask','angular','android'];
             let sWords2=['rajpal','akshay','shahrukh','shushant','Sanjana','saif','ayushman','kartikaryan','amitab'];
             let sWords3=['lagaan','ishq','baazigar','herapheri','don','stree','sadak','highway','blue'];
@@ -319,32 +320,35 @@
                 return arr;
             }
             btn.addEventListener('click',function()
-            {
-                if(!play)
-                {
-                    play=true;
-                    btn.innerHTML="Guess";
-                    guess.classList.toggle('hidden');
-                     newWords =createNewWords();
-                   ranWords=scrambleWords(newWords.split("")).join("");
-                  
-                   msg.innerHTML=` Guess the word:${ranWords}`;
-                }
-                else{
-                    let tempWord=guess.value;
-                    if(tempWord.toLowerCase()===newWords)
-                    {
-                            play=false;
-                            msg.innerHTML= `Awesome its correct. It is ${newWords}`;
-                            btn1.innerHTML="Start Again";
-                            guess.classList.toggle('hidden');
-                            guess.value="";
-                    }
-                    else{
-                        msg.innerHTML= `Oops its incorrect. Please try again ${ranWords}`;
-                    }
-                }
-            })
+
+{
+    
+    if(!play)
+    {
+        play=true;
+        btn.innerHTML="Guess";
+        guess.classList.toggle('hidden');
+         newWords =createNewWords();
+       ranWords=scrambleWords(newWords.split("")).join("");
+      
+       msg.innerHTML=` Guess the word:${ranWords}`;
+    }
+    else{
+        let tempWord=guess.value;
+        if(tempWord.toLowerCase()===newWords)
+        {
+                play=false;
+                msg.innerHTML= `Awesome its correct. It is ${newWords}`;
+                btn.innerHTML="Start Again";
+                guess.classList.toggle('hidden');
+                guess.value="";
+        }
+        else{
+            msg.innerHTML= `Oops its incorrect. Please try again ${ranWords}`;
+        }
+    }
+})
+           
             btn1.addEventListener('click',function()
 
             {
@@ -365,7 +369,7 @@
                     {
                             play=false;
                             msg.innerHTML= `Awesome its correct. It is ${newWords}`;
-                            btn1.innerHTML="Start Again";
+                            btn.innerHTML="Start Again";
                             guess.classList.toggle('hidden');
                             guess.value="";
                     }
